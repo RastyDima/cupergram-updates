@@ -33,10 +33,11 @@ def main():
     digest = hashlib.sha256(apk.read_bytes()).hexdigest()
     if apk.stat().st_size != meta['size'] or digest != meta['sha256']:
         raise SystemExit('Candidate bytes do not match metadata.')
-    sdk = Path(os.environ['ANDROID_HOME']); aapt = sorted(sdk.glob('build-tools/*/aapt'))[-1]
+    sdk = Path(os.environ['ANDROID_HOME']); aapt = sdk / 'build-tools/36.0.0/aapt'
     signing = run(str(aapt.parent / 'apksigner'), 'verify', '--verbose', '--print-certs', str(apk))
-    certificate = re.search(r'Signer #1 certificate SHA-256 digest: ([0-9a-fA-F]+)', signing)
-    if not certificate or certificate.group(1).lower() != SIGNER:
+    certificates = re.findall(r'certificate SHA-256 digest: ([0-9a-fA-F]+)', signing)
+    print('APK signer certificate digests:', certificates)
+    if not certificates or {value.lower() for value in certificates} != {SIGNER}:
         raise SystemExit('Candidate APK has a different signing identity.')
     badging = run(str(aapt), 'dump', 'badging', str(apk))
     package = re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']*)'", badging)
