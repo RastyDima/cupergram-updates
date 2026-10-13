@@ -1,0 +1,40 @@
+name: Publish checked Cupergram APK
+
+on:
+  push:
+    branches: ['candidate-*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-cupergram-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'build-tools;36.0.0'
+          log-accepted-android-sdk-licenses: false
+      - name: Verify signed candidate and unpack its exact source kit
+        run: python3 public_release.py verify
+      - name: Reconstruct corresponding pinned source and native submodules
+        run: |
+          python3 kit/scripts/free_runner_space.py
+          python3 kit/scripts/prepare.py work/Telegram
+          python3 kit/scripts/configure.py work/Telegram --runtime-api
+          python3 kit/scripts/package_sources.py work/Telegram Cupergram-source.zip
+      - name: Publish APK and sources, then offer the update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 public_release.py publish
+      - name: Remove consumed publication branch
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api "repos/$GITHUB_REPOSITORY/git/refs/heads/$GITHUB_REF_NAME" --method DELETE
