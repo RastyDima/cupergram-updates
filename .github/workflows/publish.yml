@@ -25,7 +25,7 @@ jobs:
         run: python3 public_release.py verify
       - name: Reconstruct corresponding pinned source and native submodules
         run: |
-          python3 kit/scripts/free_runner_space.py
+          sudo --preserve-env=GITHUB_ACTIONS,RUNNER_ENVIRONMENT python3 kit/scripts/free_runner_space.py
           python3 kit/scripts/prepare.py work/Telegram
           python3 kit/scripts/configure.py work/Telegram --runtime-api
           python3 kit/scripts/package_sources.py work/Telegram Cupergram-source.zip
