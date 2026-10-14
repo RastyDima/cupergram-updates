@@ -1,9 +1,9 @@
 # Cupergram APK updates
 
-This repository distributes Cupergram APKs that passed the Android checks. Telegram account credentials and signing private keys are not included.
+[Download Cupergram 71359](https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-38536937180/Cupergram-12.10.6.apk) · [APK, SHA256 and corresponding sources](https://github.com/RastyDima/cupergram-updates/releases/tag/cupergram-38536937180).
 
-Download the latest offered APK from [Releases](https://github.com/RastyDima/cupergram-updates/releases). The app reads [update.json](https://raw.githubusercontent.com/RastyDima/cupergram-updates/main/update.json) without a GitHub login, checks the version and SHA256, and requires the APK to have the same package and signing certificate as the installed app.
+Successful signed builds are published independently from Android emulator checks. The channel verifies the APK checksum, original signing certificate, package and version before updating the public feed. APK 71359 has not passed the full emulator suite; [Android check results](https://github.com/RastyDima/cupergram/actions/runs/38566291880) are shown separately. This is recorded as `androidVerified: false` in the feed.
 
-Each release includes the APK, its SHA256 and corresponding sources (GPL v2 or later). The source repository stays separate from this distribution channel.
+The app reads [update.json](https://raw.githubusercontent.com/RastyDima/cupergram-updates/main/update.json) without a GitHub login, checks SHA256 and requires the package and signing certificate to match the installed app. Installation requires Android's confirmation.
 
-Publication runs only for candidates submitted after the private Android check succeeds. The channel independently checks the signing identity and APK package/version, publishes the APK and source archive, then updates the feed. Installation requires Android's confirmation.
+Each release includes the APK, SHA256 and corresponding sources (GPL v2 or later). Telegram account credentials and signing private keys are not included. The source repository stays separate from this distribution channel.
