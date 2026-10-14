@@ -1,4 +1,4 @@
-name: Publish checked Cupergram APK
+name: Publish signed Cupergram APK
 
 on:
   push:

@@ -52,10 +52,14 @@ def main():
                 if info.filename.startswith('/') or '..' in Path(info.filename).parts or info.file_size > 10*1024*1024:
                     raise SystemExit('Unsafe source-kit entry.')
             source.extractall(root / 'kit')
-        print('APK hash, signer and package match the checked candidate.')
+        print('APK hash, signer and package match the candidate metadata.')
         return
     checksum = payload / (apk.name+'.sha256'); checksum.write_text(digest+'  '+apk.name+'\n')
-    notes = payload / 'notes.md'; notes.write_text(meta['notes']+'\n\nAPK · '+str(meta['versionCode'])+'\n\nAndroid check: https://github.com/RastyDima/cupergram/actions/runs/'+str(meta['androidRun'])+' (attempt '+str(meta['androidAttempt'])+')\n\nAPK, SHA256 and corresponding sources (GPL v2 or later) are attached.\n')
+    if meta.get('androidVerified', True):
+        android_status = 'Android check: https://github.com/RastyDima/cupergram/actions/runs/'+str(meta['androidRun'])+' (attempt '+str(meta['androidAttempt'])+')'
+    else:
+        android_status = 'Android checks run separately; this release has not passed the full emulator suite. Results: https://github.com/RastyDima/cupergram/actions/workflows/smoke.yml'
+    notes = payload / 'notes.md'; notes.write_text(meta['notes']+'\n\nAPK · '+str(meta['versionCode'])+'\n\nBuild: https://github.com/RastyDima/cupergram/actions/runs/'+str(meta['buildRun'])+'\n\n'+android_status+'\n\nAPK, SHA256 and corresponding sources (GPL v2 or later) are attached.\n')
     found = subprocess.run(['gh', 'release', 'view', tag, '--repo', REPO], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
     if not found:
         run('gh', 'release', 'create', tag, str(apk), str(checksum), str(root / 'Cupergram-source.zip'), '--repo', REPO, '--target', 'main', '--title', 'Cupergram '+meta['versionName']+' · '+str(meta['versionCode']), '--notes-file', str(notes), '--draft')
@@ -67,7 +71,7 @@ def main():
     old = json.loads(base64.b64decode(previous['content']))
     if old['versionCode'] > meta['versionCode']:
         print('A newer public APK exists; leaving its feed unchanged.'); return
-    request = dict(message='Offer checked APK '+str(meta['versionCode']), branch='main', sha=previous['sha'], content=base64.b64encode((json.dumps(meta, ensure_ascii=False, indent=2)+'\n').encode()).decode())
+    request = dict(message='Offer APK '+str(meta['versionCode']), branch='main', sha=previous['sha'], content=base64.b64encode((json.dumps(meta, ensure_ascii=False, indent=2)+'\n').encode()).decode())
     input_file = payload / 'feed-request.json'; input_file.write_text(json.dumps(request))
     run('gh', 'api', f'repos/{REPO}/contents/update.json', '--method', 'PUT', '--input', str(input_file))
     print('Public update feed now offers', meta['versionCode'])
