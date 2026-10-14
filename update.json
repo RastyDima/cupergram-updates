@@ -1,15 +1,18 @@
 {
   "schema": 1,
   "packageName": "app.cupergram.android.web",
-  "versionCode": 71339,
+  "versionCode": 71359,
   "versionName": "12.10.6",
   "minSdk": 21,
-  "size": 64640714,
-  "sha256": "196d66aa44dbe26d32b97300c3b05f9b098f4c0aa153f26e054ae09c680e7850",
-  "apkUrl": "https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-38473091592/Cupergram-12.10.6.apk",
-  "buildRun": 38473091592,
-  "androidRun": 38475963654,
-  "androidAttempt": 1,
-  "sourceCommit": "143eaf1630a9661b170a40b7bc23a4d339d9278b",
-  "notes": "Автообновления из публичного канала: автоматическая проверка, отдельная загрузка по Wi-Fi и установка через Android. Индикатор Призрака с отдельным переключателем. Профиль в настройках, полупрозрачные удалённые сообщения и музыкальный плеер. Проверено на Android 15."
+  "size": 64657478,
+  "sha256": "c014b62f267280e796cb5650f7736a5e8411c5a5f5b649cc5e4dbe7e70f369ce",
+  "apkUrl": "https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-38536937180/Cupergram-12.10.6.apk",
+  "buildRun": 38536937180,
+  "androidVerified": false,
+  "androidRun": null,
+  "androidAttempt": null,
+  "publishRun": 38566287395,
+  "publishAttempt": 1,
+  "sourceCommit": "4aab343a3bc684794c9e8775c0ed2ece2bc609eb",
+  "notes": "Отмена отправки с отсчётом пять секунд, выбор задержки Призрака и музыкальные плейлисты. Создание, сохранение, порядок и воспроизведение подборок. Автообновления, полупрозрачные удалённые сообщения и плеер сохранены. Полная проверка на эмуляторе не пройдена; Android-проверки выполняются отдельно от выпуска APK."
 }
