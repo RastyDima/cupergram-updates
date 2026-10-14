@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "packageName": "app.cupergram.android.web",
+  "versionCode": 71339,
   "versionName": "12.10.6",
-  "versionCode": 71329,
   "minSdk": 21,
-  "size": 64624360,
-  "sha256": "8e3cbb56e58bf80e7a6cd89b21da06405e0ae5758f7664c4f5399cb08d341001",
-  "apkUrl": "https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-38452845252/Cupergram-12.10.6.apk",
-  "buildRun": 38452845252,
-  "androidRun": 38455909726,
-  "androidAttempt": 2,
-  "sourceCommit": "bc0a20530f057640e4f608bb8a8a26f56d3cf83b",
-  "notes": "В основных настройках добавлен «Профиль», отдельная аватарка убрана. Удалённые обычные сообщения при включённом сохранении остаются в чате полупрозрачными с меткой «Удалено». Сохранены плеер, темы и режим призрака. Проверено на Android 15."
+  "size": 64640714,
+  "sha256": "196d66aa44dbe26d32b97300c3b05f9b098f4c0aa153f26e054ae09c680e7850",
+  "apkUrl": "https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-38473091592/Cupergram-12.10.6.apk",
+  "buildRun": 38473091592,
+  "androidRun": 38475963654,
+  "androidAttempt": 1,
+  "sourceCommit": "143eaf1630a9661b170a40b7bc23a4d339d9278b",
+  "notes": "Автообновления из публичного канала: автоматическая проверка, отдельная загрузка по Wi-Fi и установка через Android. Индикатор Призрака с отдельным переключателем. Профиль в настройках, полупрозрачные удалённые сообщения и музыкальный плеер. Проверено на Android 15."
 }
