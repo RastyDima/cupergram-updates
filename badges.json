@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "ownerId": "1552083364",
+  "revision": 1,
+  "roles": [
+    {
+      "id": "developer",
+      "name": "Developer",
+      "description": "Разработчик Cupergram",
+      "icon": "code",
+      "color": "6D5EF7"
+    },
+    {
+      "id": "tester",
+      "name": "Tester",
+      "description": "Помогает тестировать новые версии",
+      "icon": "flask",
+      "color": "16A487"
+    },
+    {
+      "id": "designer",
+      "name": "Designer",
+      "description": "Создаёт оформление и интерфейс",
+      "icon": "palette",
+      "color": "E6538A"
+    },
+    {
+      "id": "moderator",
+      "name": "Moderator",
+      "description": "Помогает сообществу Cupergram",
+      "icon": "shield",
+      "color": "D38B28"
+    },
+    {
+      "id": "supporter",
+      "name": "Supporter",
+      "description": "Поддерживает развитие Cupergram",
+      "icon": "heart",
+      "color": "328BDD"
+    }
+  ],
+  "awards": {
+    "1552083364": [
+      "developer"
+    ]
+  }
+}
