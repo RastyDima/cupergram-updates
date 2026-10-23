@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "ownerId": "1552083364",
-  "revision": 3,
+  "revision": 4,
   "roles": [
     {
       "id": "developer",
@@ -43,7 +43,8 @@
     "1552083364": [
       "developer",
       "tester",
-      "designer"
+      "designer",
+      "moderator"
     ]
   }
 }
