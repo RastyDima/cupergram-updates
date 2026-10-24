@@ -1,18 +1,18 @@
 {
   "schema": 1,
   "packageName": "app.cupergram.android.web",
-  "versionCode": 71359,
+  "versionCode": 71429,
   "versionName": "12.10.6",
   "minSdk": 21,
-  "size": 64657478,
-  "sha256": "c014b62f267280e796cb5650f7736a5e8411c5a5f5b649cc5e4dbe7e70f369ce",
-  "apkUrl": "https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-38536937180/Cupergram-12.10.6.apk",
-  "buildRun": 38536937180,
+  "size": 64682636,
+  "sha256": "7ea2f9b3f3e925d0e320b6f8b4da91e02bfe45defab7afae6bf27a145e7eccac",
+  "apkUrl": "https://github.com/RastyDima/cupergram-updates/releases/download/cupergram-40003898754/Cupergram-12.10.6.apk",
+  "buildRun": 40003898754,
   "androidVerified": false,
   "androidRun": null,
   "androidAttempt": null,
-  "publishRun": 38566287395,
-  "publishAttempt": 1,
-  "sourceCommit": "4aab343a3bc684794c9e8775c0ed2ece2bc609eb",
-  "notes": "Отмена отправки с отсчётом пять секунд, выбор задержки Призрака и музыкальные плейлисты. Создание, сохранение, порядок и воспроизведение подборок. Автообновления, полупрозрачные удалённые сообщения и плеер сохранены. Полная проверка на эмуляторе не пройдена; Android-проверки выполняются отдельно от выпуска APK."
+  "publishRun": 40007243545,
+  "publishAttempt": 3,
+  "sourceCommit": "b9a070873995deaf34b8c2a085b5a558da8c2b6c",
+  "notes": "Обновлены бейджи Cupergram: цветные плашки в профиле, список ролей и карточки с описанием в нижнем окне. Доступны Developer, Tester, Designer, Moderator, Supporter и свои роли. Призрак, отмена отправки, выбор задержки, плейлисты, автообновления и полупрозрачные удалённые сообщения сохранены. Полная проверка на эмуляторе не пройдена; Android-проверки выполняются отдельно от выпуска APK."
 }
